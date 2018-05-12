@@ -13,3 +13,6 @@ class BlockChain:
     def addBlock(self, block):
         self.blocks.append(block)
         self.latesBlock = block
+    
+    def getBlocks(self):
+        return self.blocks

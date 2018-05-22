@@ -3,10 +3,10 @@ from utils.hash import calculateHash
 
 class Block:
 
-    def __init__(self, index, timestamp, previousHash, data):
+    def __init__(self, index, timestamp, hash, previousHash, data):
         self.index = index
         self.timestamp = timestamp
-        self.hash = calculateHash(index, previousHash, timestamp, data)
+        self.hash = hash
         self.previousHash = previousHash
         self.data = data
 

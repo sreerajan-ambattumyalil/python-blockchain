@@ -1,6 +1,6 @@
 from model.block import Block
 from model.validation_response import ValidationResponse
-from utils.hash import calculateHashForBlock
+from utils.hash import calculateHash
 import datetime
 
 class BlockValidator:
@@ -15,7 +15,7 @@ class BlockValidator:
             return ValidationResponse(False, "Index mismatch")
         if(newBlock.previousHash != previousBlock.hash):
             return ValidationResponse(False, "Hash mismatch")
-        if(calculateHashForBlock(newBlock) != newBlock.hash):
+        if(calculateHash(newBlock.index, newBlock.previousHash, newBlock.timestamp, newBlock.data) != newBlock.hash):
             return ValidationResponse(False, "Hash mismatch")
         if(not (self.__validStructure(newBlock))):
             return ValidationResponse(False, "Invalid structure")
